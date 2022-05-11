@@ -1,7 +1,5 @@
 
 import random
-
-
 class GenerarAleatorios:
     
     def __init__(self):
@@ -51,3 +49,11 @@ Desordenada=Ordenar()
 
 Desordenada.DesordenarLista()
 Ordenada.OrdenarLista()
+
+class JugadorCartas(GenerarAleatorios):
+    def RepartirCartas(self):
+            miMazo=self.MezclarCartas()
+            misCartas=[]
+            for listas in miMazo:
+                misCartas=misCartas+listas
+            random.shuffle(misCartas)
