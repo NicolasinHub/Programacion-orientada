@@ -14,8 +14,10 @@ class GeneradorAleatorios:
             i+=1
             
         return self.dados
+miObjeto=GeneradorAleatorios()
+print(miObjeto.LanzarDados(5))
 
-    def MezclarCartas(self):
+def MezclarCartas(self):
         Mazo=[]
         Letras=['C','T','P','D']
         for letra in Letras:
@@ -53,4 +55,3 @@ class JugadorCartas(GeneradorAleatorios):
         for listas in miMazo:
             misCartas=misCartas+listas
         random.shuffle(misCartas)
-    
