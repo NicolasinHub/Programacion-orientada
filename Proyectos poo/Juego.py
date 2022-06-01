@@ -2,33 +2,33 @@ from re import A
 import pygame
 import random
 
-Tamaño=1200,800
+Tamaño=800,600
 Blanco=255,255,255
 Negro=0,0,0
-Posicionx=600
-Posiciony=400
+Posicionx=400
+Posiciony=300
 
 pygame.init()
 
 screen=pygame.display.set_mode(Tamaño)
 
-running=True
-
-while running:
+while 1:
     for event in pygame.event.get():
         if event.type==pygame.QUIT:
-            running=False
+            pygame.quit()
+            quit()
             
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_a:
-                Posicionx = Posicionx+1
+                Posicionx = Posicionx-4
             if event.key == pygame.K_d:
-                Posicionx = Posicionx-1
+                Posicionx = Posicionx+4
             if event.key == pygame.K_w:
-                Posicionx = Posiciony-1
+                Posicionx = Posiciony-4
             if event.key == pygame.K_s:
-                Posicionx = Posiciony+1
+                Posicionx = Posiciony+4
             
     pygame.display.update()
-    pygame.draw.circle(screen, Blanco, (Posicionx,Posiciony),random.randrange(10,50))
+    screen.fill(Blanco)
+    pygame.draw.circle(screen, Negro, (Posicionx,Posiciony), (20))
     pygame.display.flip()   
