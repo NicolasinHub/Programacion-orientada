@@ -24,9 +24,9 @@ while 1:
             if event.key == pygame.K_d:
                 Posicionx = Posicionx+4
             if event.key == pygame.K_w:
-                Posicionx = Posiciony-4
+                Posiciony = Posiciony-4
             if event.key == pygame.K_s:
-                Posicionx = Posiciony+4
+                Posiciony = Posiciony+4
             
     pygame.display.update()
     screen.fill(Blanco)
