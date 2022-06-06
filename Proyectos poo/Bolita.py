@@ -1,14 +1,14 @@
+
 from turtle import Screen, circle
 import pygame
-import sys, pygame
 
 ScreenSize=800,600
+BallSize=30
 Blanco=255,255,255
 Negro=0,0,0
 Posicionx=400
 Posiciony=300
-BallSize=20
-Speed=[1, 1]
+Posicion=[1, 1]
 
 pygame.init()
 
@@ -21,10 +21,13 @@ while True:
             pygame.quit()
             quit()
         
-    Ball=pygame.image.load("Ball.jpg")
-    Ballrect= Ball.get_rect()
-        
+    
+    if (BallSize-Posicionx) < Posicionx:
+        Posicion[0]= -Posicion[0]
+    
+    Posicion=
     pygame.display.update()
     screen.fill(Blanco)
+    pygame.draw.circle(screen, Negro, (Posicionx,Posiciony), (BallSize))
     pygame.display.flip()  
     clock.tick(20)
