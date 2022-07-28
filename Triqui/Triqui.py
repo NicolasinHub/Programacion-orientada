@@ -60,29 +60,31 @@ def numeroHermanos(casilla, h, v):
 def hemosGanado(casilla, ficha):
     hermanos=numeroHermanos(casilla,ficha,-1,-1)+numeroHermanos(casilla,ficha,1,1)
     if(hermanos==2):
-        return true
+        return True
     hermanos=numeroHermanos(casilla,ficha,1,-1)+numeroHermanos(casilla,ficha,-1,1)
     if(hermanos==2):
-        return true
+        return True
     hermanos=numeroHermanos(casilla,ficha,-1,0)+numeroHermanos(casilla,ficha,1,0)
     if(hermanos==2):
-        return true
+        return True
     hermanos=numeroHermanos(casilla,ficha,0,-1)+numeroHermanos(casilla,ficha,0,1)
     if(hermanos==2):
-        return true    
+        return True    
     
-jugador1=input("Nombre del jugador 1: ")
-jugador2=input("Nombre del jugador 2: ")
+jugadores=[]
+jugadores.append(input("Nombre del jugador 1: "))
+jugadores.append(input("Nombre del jugador 2: "))
 
 continuar=False
 fichasenTablero=0
 while continuar:
     pintarTablero()
-    ficha='X' if (fichasenTablero&1) else 'O'
+    jugador=(fichasenTablero&1)
+    ficha='X' if jugador==1 else 'O'
     casilla=colocarFicha(ficha)
     if(hemosGanado(casilla,ficha)):
         continuar=False
-        print("Has ganado")
+        print(jugadores[jugador], "¡¡Has ganado!!")
     fichasenTablero+=1
     if(fichasenTablero==9):
         continuar=False
