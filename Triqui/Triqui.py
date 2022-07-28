@@ -91,11 +91,12 @@ def pintarTablero():
         print("|\n",("-"*18))
     
 jugadores=[]
-numeroJugadores=numero("Numero de jugadores: ", 0,2)
+numeroJugadores=numero("Numero de jugadores: ",0,2)
 for i in range(numeroJugadores):
     jugadores.append({"nombre":input("Nombre del jugador "+str(i+1)+": "),"tipo":"H"})
 for i in range(2-numeroJugadores):
     jugadores.append({"nombre":"Maquina "+str(i+1),"tipo":"M"})
+    
 print("\n Empazamos la partida con los jugadores")
 for jugador in jugadores:
     print("\t",jugador["nombre"])
@@ -103,8 +104,10 @@ empieza=numero("¿Que jugador empieza? [1="+jugadores[0]["nombre"]+",2="+jugador
 if(empieza==2):
     jugadores.reverse()
 
+
 continuar=False
 fichasenTablero=0
+
 while continuar:
     pintarTablero()
     numJugador=(fichasenTablero&1)
