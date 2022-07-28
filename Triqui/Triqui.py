@@ -111,11 +111,16 @@ while continuar:
     ficha='X' if numJugador==1 else 'O'
     if(jugadores[numJugador]["tipo"]=="H"):
         casilla=colocarFicha(ficha)
+    else:
+        casilla=colocarFichaMaquina(ficha,'X' if numJugador==0 else 'O')
+    casillasvacias.remove(casilla)
+    if(hemosGanado(casilla,ficha)):
         continuar=False
-        print(jugadores[jugador], "¡¡Has ganado!!")
+        print(jugadores[numJugador]["nombre"], "¡¡Has ganado!!")
     fichasenTablero+=1
     if(fichasenTablero==9):
         continuar=False
+        print("TABLAS")
     
 pintarTablero()
  
