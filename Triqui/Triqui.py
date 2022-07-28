@@ -1,12 +1,16 @@
 import math
+import random
+
+
 tablero=[]
+casillasvacias=[]
 TABLERO_FILAS=3
 TABLERO_COLUMNAS=3
 
 for i in range(9):
-    tablero.append(' ')
+    tablero.append(' ') 
 
-def coordenada(literal,inferior,superior):
+def numero(literal, inferior, superior):
     while True:
         valor=input(literal)
         while(not valor.isnumeric()):
@@ -17,35 +21,14 @@ def coordenada(literal,inferior,superior):
             return coor
         else:
             print("El valor indicado es incorrecto, introduzca un numero entre {0} y {1}".format(inferior,superior))
-
-
-def colocarFicha(ficha):
-    print("Dame la posición de una ficha")
-    while True:
-        fila=coordenada("Fila entre [1 y 3]: ",1,3)-1
-        columna=coordenada("Columna entre [1 y 3]: ",1,3)-1
-        casilla=fila*3+columna
-        if(tablero[casilla]!=' '):
-            print("La casilla esta ocupada")
-        else:
-            tablero[casilla]=ficha
-            return casilla
-def pintarTablero():
-    pos=0
-    print(("-"*18))
-    for fila in range(3):
-        for columna in range(3):
-            print("| ",tablero[pos]," ", end="")
-            pos+=1
-        print("|\n",("-"*18))
-        
-def numeroHermanos(casilla, h, v):
+   
+def numeroHermanos(casilla, ficha, h, v):
     f=math.floor(casilla/TABLERO_COLUMNAS)
     c=casilla % TABLERO_COLUMNAS
     fila_nueva=f+v
     if(fila_nueva<0 or fila_nueva>=TABLERO_FILAS):
         return 0
-    columna_nueva=c+v
+    columna_nueva=c+v  
     if(columna_nueva<0 or columna_nueva>=TABLERO_COLUMNAS):
         return 0
     pos=(fila_nueva*TABLERO_COLUMNAS+columna_nueva)
@@ -53,8 +36,6 @@ def numeroHermanos(casilla, h, v):
         return 0
     else:
         return 1+numeroHermanos(pos,ficha,v,h)
-    
-  
     
     
 def hemosGanado(casilla, ficha):
@@ -70,6 +51,27 @@ def hemosGanado(casilla, ficha):
     hermanos=numeroHermanos(casilla,ficha,0,-1)+numeroHermanos(casilla,ficha,0,1)
     if(hermanos==2):
         return True    
+    
+def colocarFicha(ficha):
+    print("Dame la posición de una ficha")
+    while True:
+        fila=numero("Fila entre [1 y 3]: ", 1,3)-1
+        columna=numero("Columna entre [1 y 3]: ", 1,3)-1
+        casilla=fila*TABLERO_COLUMNAS+columna
+        if(tablero[casilla]!=' '):
+            print("La casilla esta ocupada")
+        else:
+            tablero[casilla]=ficha
+            return casilla
+        
+def pintarTablero():
+    pos=0
+    print(("-"*18))
+    for fila in range(3):
+        for columna in range(3):
+            print("| ",tablero[pos]," ", end="")
+            pos+=1
+        print("|\n",("-"*18))
     
 jugadores=[]
 jugadores.append(input("Nombre del jugador 1: "))
