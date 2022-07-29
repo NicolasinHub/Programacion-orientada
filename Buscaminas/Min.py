@@ -21,3 +21,20 @@ filas=12
 
 visible=MostrarTablero(filas,columnas, "-")
 oculto=MostrarTablero(filas,columnas,0)
+
+
+def ColocarMinas(tablero, minas, fil, col):
+    minasocultas=[]
+    numero=0
+    while numero < minas:
+        y = random.randint(0,fil-1)
+        x = random.randint(0,col-1)
+        if tablero[y][x] != 9:
+            tablero[y][x] = 9
+            numero+=1
+            minasocultas.append((y,x))
+    return tablero, minasocultas
+
+
+def Presentacion():
+    
