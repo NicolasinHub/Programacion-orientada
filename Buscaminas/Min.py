@@ -14,3 +14,10 @@ def MostrarTablero(tablero):
         for e in fila:
             print(e, end=" ")
         print()
+        
+
+columnas=16
+filas=12
+
+visible=MostrarTablero(filas,columnas, "-")
+oculto=MostrarTablero(filas,columnas,0)
