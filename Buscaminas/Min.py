@@ -10,4 +10,7 @@ def CrearTablero(fil, col, val):
     return tablero
 
 def MostrarTablero(tablero):
-    
+    for fila in tablero:
+        for e in fila:
+            print(e, end=" ")
+        print()
