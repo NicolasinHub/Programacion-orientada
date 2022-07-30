@@ -37,4 +37,17 @@ def ColocarMinas(tablero, minas, fil, col):
 
 
 def Presentacion():
+    os.system("cls")
+    
+    print("**********************")
+    print("*                    *")
+    print("*     BUSCAMINAS     *")
+    print("*  w/a/s/d - MOVERSE *")
+    print("*                    *")
+    print("*       MOSTRAR      *")
+    print("*B/V-marcar/desmarcar*")   
+    print("*                    *")
+    print("**********************")
+    print()
+    input(" 'Enter' para empezar...")
     
