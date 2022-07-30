@@ -51,3 +51,22 @@ def Presentacion():
     print()
     input(" 'Enter' para empezar...")
     
+def Menu():
+    print()
+    opcion = input("¿w/a/s/d - m - b/v?")
+    return opcion
+
+columnas = 16
+filas = 12
+
+visible=CrearTablero(filas,columnas, "-")
+oculto=CrearTablero(filas, columnas, 0)
+oculto, MinasOcultas = ColocarMinas(oculto, 15, filas, columnas)
+
+Presentacion()
+
+y = random.randint(2, filas-3)
+x = random.randint(2, columnas-3)
+
+real = visible[y][x]
+visible[y][x]= "X"
