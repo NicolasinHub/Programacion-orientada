@@ -70,3 +70,50 @@ x = random.randint(2, columnas-3)
 
 real = visible[y][x]
 visible[y][x]= "X"
+
+os.system("cls")
+MostrarTablero(visible)
+
+MinasMarcadas=[]
+
+jugando = True
+
+while jugando:
+    mov = Menu()
+    
+    if mov == "w":
+        if y == 0:
+            y=0
+        else:
+            visible[y][x] = real
+            y -= 1
+            real = visible[y][x]
+            visible[y][x] = "X"
+    elif mov == "s":
+        if y == filas-1:
+            y = filas-1
+        else:
+            visible[y][x]=real
+            y += 1
+            real = visible[y][x]
+            visible[y][x] = "X"
+    elif mov == "a":
+        if x == 0:
+            x = 0
+        else:
+            visible[y][x] = real
+            x -= 1
+            real = visible[y][x]
+            visible[y][x] = "X"
+    elif mov == "d":
+        if x == columnas-1:
+            x = columnas-1
+        else:
+            visible[y][x] = real
+            x += 1
+            real = visible[y][x]
+            visible[y][x] = "X"
+    os.system("cls")
+    
+    MostrarTablero(visible)        
+            
